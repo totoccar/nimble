@@ -58,10 +58,16 @@ function JobsList({ candidate }) {
         setSubmitStatus(prev => ({ ...prev, [jobId]: null }));
 
         try {
+            console.log('=== Candidate data ===');
+            console.log('candidate:', candidate);
+            console.log('jobId:', jobId);
+            console.log('repoUrl:', repoUrl);
+
             await applyToJob({
                 uuid: candidate.uuid,
                 jobId: jobId,
                 candidateId: candidate.candidateId,
+                applicationId: candidate.applicationId,
                 repoUrl: repoUrl,
             });
             setSubmitStatus(prev => ({

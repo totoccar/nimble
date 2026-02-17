@@ -20,23 +20,35 @@ export const getJobsList = async () => {
     return response.json();
 };
 
-export const applyToJob = async ({ uuid, jobId, candidateId, repoUrl }) => {
+export const applyToJob = async ({ uuid, jobId, candidateId, applicationId, repoUrl }) => {
+    const body = {
+        uuid,
+        jobId,
+        candidateId,
+        applicationId,
+        repoUrl,
+    };
+
+    console.log('=== Apply to Job Request ===');
+    console.log('URL:', `${BASE_URL}/api/candidate/apply-to-job`);
+    console.log('Body:', JSON.stringify(body, null, 2));
+
     const response = await fetch(`${BASE_URL}/api/candidate/apply-to-job`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            uuid,
-            jobId,
-            candidateId,
-            repoUrl,
-        }),
+        body: JSON.stringify(body),
     });
+
+    console.log('Response status:', response.status);
+
+    const responseText = await response.text();
+    console.log('Response body:', responseText);
 
     if (!response.ok) {
         throw new Error(`Error: ${response.status} - ${response.statusText}`);
     }
 
-    return response.json();
+    return JSON.parse(responseText);
 };
