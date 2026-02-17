@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getCandidateByEmail } from '../services/api';
 import './CandidateLookup.css';
 
-function CandidateLookup() {
+function CandidateLookup({ onCandidateFound }) {
     const [email, setEmail] = useState('');
     const [candidate, setCandidate] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -26,8 +26,10 @@ function CandidateLookup() {
             const data = await getCandidateByEmail(email);
             if (!data || Object.keys(data).length === 0) {
                 setNotFound(true);
+                onCandidateFound?.(null);
             } else {
                 setCandidate(data);
+                onCandidateFound?.(data);
             }
         } catch (err) {
             if (err.message.includes('404')) {

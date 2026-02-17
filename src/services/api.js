@@ -19,3 +19,24 @@ export const getJobsList = async () => {
 
     return response.json();
 };
+
+export const applyToJob = async ({ uuid, jobId, candidateId, repoUrl }) => {
+    const response = await fetch(`${BASE_URL}/api/candidate/apply-to-job`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            uuid,
+            jobId,
+            candidateId,
+            repoUrl,
+        }),
+    });
+
+    if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    }
+
+    return response.json();
+};
