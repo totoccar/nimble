@@ -3,13 +3,22 @@
     margin: 0 auto;
     padding: 40px 20px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #e0e0e0;
+    border-radius: 16px;
+    background: #fafafa;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .candidate-lookup h1 {
     text-align: center;
-    color: #333;
     margin-bottom: 30px;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 .search-form {
