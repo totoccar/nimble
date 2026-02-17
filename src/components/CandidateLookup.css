@@ -1,0 +1,140 @@
+.candidate-lookup {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.candidate-lookup h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.email-input {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.email-input:focus {
+    border-color: #646cff;
+}
+
+.search-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #646cff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover:not(:disabled) {
+    background-color: #535bf2;
+}
+
+.search-button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #c62828;
+}
+
+.not-found-message {
+    background-color: #fff3e0;
+    color: #e65100;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e65100;
+    text-align: center;
+    font-weight: 500;
+}
+
+.candidate-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    padding: 24px;
+    color: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.candidate-card h2 {
+    margin: 0 0 20px 0;
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 12px;
+}
+
+.candidate-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.value {
+    text-align: right;
+    word-break: break-all;
+}
+
+.value.uuid {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+@media (max-width: 500px) {
+    .search-form {
+        flex-direction: column;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .value {
+        text-align: left;
+    }
+}
